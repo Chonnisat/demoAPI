@@ -2,7 +2,7 @@ pipeline {
     agent none
     environment {
         imageName = 'sommaik/demoApi'
-        port = 3000
+        port = 3030
     }
     
     stages {
