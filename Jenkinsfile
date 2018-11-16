@@ -2,7 +2,7 @@ pipeline {
     agent none
     environment {
         imageName = 'sommaik/demoApi'
-        port = 3030
+        port = 3000
     }
     
     stages {
@@ -38,7 +38,7 @@ pipeline {
                     sh "docker service update --image ${env.imageName} demo"
                     sh "echo update service"
                   } catch (e){
-                    sh "docker service create --name demo -p 3030:3000 ${env.imageName}"
+                    sh "docker service create --name demo -p ${env.port}:3000 ${env.imageName}"
                     sh "echo create service"
                   }
               }
